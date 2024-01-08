@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>history</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		        <script type="text/javascript">
+		            /* 左按钮 */
+		            function left_btn(){
+		                var i;
+		                var l = $(".small_list").find("ul li").length;
+		                $(".small_list").find("ul li").each(function(index){
+		                    if($(this).hasClass("on")){
+		                        i = index;
+		                    }
+		                });
+		                i--;
+		                if(i < 0){
+		                    i = l - 1;
+		                }
+		                t = i;
+		                Img(i)
+		            };
+		
+		            /* 右按钮 */
+		            function right_btn(){
+		                var i;
+		                var l = $(".small_list").find("ul li").length;
+		                $(".small_list").find("ul li").each(function(index){
+		                    if($(this).hasClass("on")){
+		                        i = index;
+		                    }
+		                });
+		                i++;
+		                if(i > l-1){
+		                    i = 0;
+		                }
+		                t = i;
+		                Img(i);
+		            };
+					
+		            /* 图片 */
+		            function Img(i){
+		                var l = $(".small_list").find("ul li").length;
+		                var l_mean;
+		                if(l < 4){
+		                    l_mean = 0;
+		                }else{
+		                    l_mean = ((parseInt(l / 4) - 1) * 4) + (l % 4);
+		                }
+		                var w = 110;
+		                $(".large_box").find("ul li").eq(i).fadeIn().siblings().hide();
+		                $(".small_list").find("ul li").eq(i).addClass("on").siblings().removeClass("on");
+		                var ml = i * w;
+		                if(ml <= l_mean * w){
+		                    $(".small_list").find("ul").stop().animate({
+		                        marginLeft: -ml + "px"
+		                    })
+		                }else{
+		                    $(".small_list").find("ul").stop().animate({
+		                        marginLeft: -(l_mean * w) + "px"
+		                    })
+		                }
+		            }
+					
+	</script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.entirety{
+			width: 1024px;
+			margin: 0 auto;
+		}
+		.one{
+		            /* 弹性布局 让页面元素水平+垂直居中*/
+		            display: flex;
+		            justify-content: center;
+		            align-items: center;
+		            /*让页面始终占浏览器总高*/
+		            height: 100vh;
+		            background: url("images/PZ5.jpg");
+		            /* 添加毛玻璃效果 */
+		            background-color: rgba(112, 112, 112, 0.5);
+		            border-radius: 20px;
+					/* 距离上面远一点 */
+					margin-top: 10px;
+		        }
+		        .card{
+		             position: relative;
+		             width: 300px;
+		             height: 450px;
+		             margin: 20px;
+		             background-color: rgba(112, 112, 112, 0.5);;
+		             border-radius: 20px;
+		             overflow: hidden;
+		             display: flex;
+		             /* 元素纵向排列*/
+		             flex-direction: column;
+		             align-items: center;
+		             color: #fff;
+		             box-shadow: 0 0 30px rgba(0,0,0,0.5);
+		             /* 不让其被挤压*/
+		             flex-shrink: 0;
+		        }
+		        .card .photo img{
+		             width: 100%;
+		             height: 100%;
+		             /* 保持原有尺寸比例，裁切长边*/
+		             object-fit: cover;
+		        }
+		        /* 默认大图 */
+		        .card .photo{
+		             position: absolute;
+		             top: 0;
+		             width: 100%;
+		             height: 100%;
+		             border-radius: 0%;
+		             overflow: hidden;
+		             transition: 0.5s;
+		        }
+		        /* 鼠标移入变小图 */
+		        .card:hover .photo{
+		             top:30px;
+		             width: 120px;
+		             height: 120px;
+		             border-radius: 50%;
+		             box-shadow: 0 0 20px rgba(0,0,0,0.8);
+		        }
+		        /*加一个黑色到透明的渐变背景，可以更清楚的看到名字*/
+		        .card .photo::before{
+		             content:"";
+		             position: absolute;
+		             width: 100%;
+		             height: 100%;
+		             background: linear-gradient(to bottom,transparent 50%,#222);
+		        }
+		        .card h1{
+		             position: absolute;
+		             top:370px;
+		             transition: 0.5s;
+		        }
+		        .card:hover h1{
+		             top:170px
+		        }
+		        .card h2{
+		             margin-top: 220px;
+		             width: 80%;
+		             border-bottom: 1px solid rgba(245, 255, 255, 0.3);
+		             font-size: 20px;
+		             text-align: center;
+		             margin-bottom: 20px;
+		             padding-bottom:20px ;
+		        }
+		        .card p{
+		             width: 90%;
+		             text-indent: 32px;
+		             font-size: 16px;
+		             margin-bottom: 15px;
+		             line-height: 30px;
+		        }
+		        .card a{
+		             font-size: 14px;
+		             color:rgba(255,255,255,0.8);
+		             text-decoration:none ;
+		             border:1px solid rgba(255,255,255,0.5);
+		             padding:8px 32px;
+		             border-radius: 8px;
+		        }
+				
+	
+		/* 介绍学校 */
+		.itd1{
+			margin-top: 20px;
+			position: relative;
+			width: 450px;
+			height: 300px;
+			border-radius: 20px;
+			overflow: hidden;
+			display: flex;
+			/* 元素纵向排列*/
+			flex-direction: column;
+			align-items: center;
+			color: #fff;
+			box-shadow: 0 0 30px rgba(0,0,0,0.5);
+			/* 不让其被挤压*/
+			flex-shrink: 0;
+			
+		}
+		.introduce img{
+			
+			     width: 100%;
+			     height: 100%;
+			     /* 保持原有尺寸比例，裁切长边*/
+			     object-fit: cover;
+		}
+		.c1{
+			position: absolute;
+			padding-left: 500px;
+			margin-top: -300px;
+			
+		}
+		.wrapper {
+			
+			margin: 0 auto;
+			width:635px;
+				  padding-top: 20px;
+				  
+				  /* 声明一个容器 */
+				  display: grid;
+				  /*  声明行高度  */
+				  grid-template-rows:repeat(1,400px) ;
+				  
+				  /*  声明行间距和列间距  */
+				  grid-gap: 10px;
+				  /*  声明行的宽度  */
+				  grid-template-columns:190px 190px 190px;
+				}
+				
+				.four{
+					background:url("images/PZ4.jpg");
+				}
+				.five{
+					background: url("images/pz5.jpg");
+				}
+				.six{
+					background: url("images/learn1.jpg");
+				}
+				.item {
+				  text-align: center;
+				  font-size: 20px;
+				  color: #fff;
+				}
+		.item li{
+			padding-top: 10px;
+			 
+		}
+		li{
+				 list-style-type: none;
+		}
+		
+		.item li a{
+		  text-decoration:none;
+		  font-size: 20px;
+		  color: #fff;
+		}
+		/* 实现图片等比例缩小不变形  */
+		/* img{
+		/*等宽缩小不变形*/
+		width: 100%;
+		/*二选一*/
+		/*等高缩小不变形*/
+		/* height: 100%; */
+		} */
+		ul{
+		    list-style:none;
+		}
+		img{
+		    border:0;
+		}
+		.banner{
+		    margin:30px auto 0;
+		    width:635px;
+		}
+		.large_box{
+		    margin-bottom:10px;
+		    width:600px;
+		    height:350px;
+		    overflow:hidden;
+		}
+		.large_box img{
+		    display:block;
+		}
+		.small_box{
+		    width:600px;
+		    height:73px;
+		    overflow:hidden;
+		}
+		.small_list{
+		    position:relative;
+		    float:left;
+		    width:550px;
+		    height:73px;
+		    overflow:hidden;
+		}
+		.small_list ul{
+		    height:50px;
+		    overflow:hidden;
+		}
+		.small_list ul li{
+		    position:relative;
+		    float:left;
+		    margin-right:10px;
+		    width:100px;
+		}
+		.small_list ul li img{
+		    display:block;
+		}
+		.small_list ul li .bun_bg{
+		    display:none;
+		    position:absolute;
+		    top:0;
+		    left:0;
+		    width:100px;
+		    height:50px;
+		    background:#FFF;
+		    filter:alpha(opacity=60);
+		    -moz-opacity:0.6;
+		    -khtml-opacity:0.6;
+		    opacity:0.6;
+		}
+		.small_list ul li.on .bun_bg{
+		    display:block;
+		}
+		.btns{
+		    display:block;
+		    width:20px;
+		    height:50px;
+		    background-color:#777;
+		    background-repeat:no-repeat;
+		    background-position:center center;
+		    cursor:pointer;
+		}
+		.btns:hover{
+		    background-color:#333;
+		}
+		.lefts_btn{
+			
+		    float:left;
+		    margin-right:10px;
+		    background-image:url('images/left_btn.png');
+		}
+		.rights_btn{
+			
+		    float:right;
+		    background-image:url('images/right_btn.png');
+		}
+	
+	a{
+	  text-decoration:none;
+	}
+	a p{
+		color: black;
+	}
+	a:hover p{
+	  color: #ff0000;
+	}	
+	/* 底部 */
+	.footer {
+	  margin-top: 40px;
+	  background-color:white;
+	  text-align: center;
+	  font-size: 20px;
+	  height: 120px;
+	}
+	.imgs1{
+	  width: 46px;
+	  height: 46px;
+	}
+	.imgs1 img{
+	  width: 120px;
+	  height: 120px;
+	  margin-left: 150px;
+	}
+	.x1{
+	
+	}
+	.footer li{
+	  list-style-type: none;
+	  display: inline;
+	
+	}
+	.footer li span{
+	  padding-left: 20px;
+	}
+	/* 侧边导航栏样式 */
+	
+	.aa ul {
+		
+	   list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  position: fixed;
+	  bottom: 10px;
+	  height: 80%;
+	  width: 150px;
+	  right: 3%;
+	
+	   z-index: 9999;
+	}
+	.aa li {
+	  float: center;
+	}
+	
+	.aa li a, .dropbtn {
+		border-radius: 15px;
+		background-color: lightblue;
+	  display: inline-block;
+	  color: #0534a8;
+	  text-align: center;
+	  width: 100px;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  
+	}
+	
+	.aa li.dropdown {
+	  display: inline-block;
+	}
+	
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+	
+	.dropdown-content a{
+	  color: black;
+	  padding: 12px 10px;
+	  text-decoration: none;
+	  display: block;
+	  text-align: center;
+	}
+	
+	.dropdown-content a:hover {background-color:#516d92;}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;}
+/* 回到头部转圈 */
+		:root {
+		    --color: #0ebeff;
+		}
+		
+		@keyframes rotate {
+		    100% {
+		        transform: translate(-50%, -50%) rotate(1turn);
+		    }
+		}
+#goToTop { position: fixed; bottom: 10px; right: 5%; z-index: 9999;}
+	/* 回到顶部样式 */
+
+.goToTop{
+    position: relative;
+    z-index: 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: var(--color);
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+
+    &:hover {
+        color: #fff;
+        box-shadow: 0 0 5px var(--color),
+            0 0 25px var(--color);
+        
+        &::after,
+        &::before {
+            transition: .3s;
+            background: var(--color);
+        }
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 300%;
+        background-color: lightblue;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0;
+        background-image: conic-gradient(var(--color), var(--color));
+        animation: rotate 2s linear infinite;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: lightblue;
+        border-radius: 10px;
+    }
+}
+a{
+  text-decoration:none;
+}
+
+	</style>
+	<script>
+	$(function(){
+	    $('a .goToTop').click(function(){
+	        $('html , body').animate({scrollTop: 0},'slow');
+	    });
+	});
+	</script>
+	</head>
+	
+	<body>
+	<div class="entirety">
+		<!-- 侧边导航栏 -->
+		<div class="aa">
+				<ul>
+		  <li class="dropdown">
+		    <a href="javascript:void(0)" class="dropbtn">导航栏</a>
+		    <div class="dropdown-content">
+		      <a href="index.html">首页</a>
+					<a href="login.html">登录页面</a>
+					<a href="study20.html">学贯二十大</a>
+					<a href="partysjx.html">党的历史</a>
+					<a href="young.html">青年学</a>
+					<a href="celebration.html">砥砺三十载</a>
+					<a href="history.html">学校历史</a>
+					<a href="view.html">校园风光</a>
+		    </div>
+		  </li>
+		</ul>
+		</div>
+		<!-- 回到顶部 -->
+		<a href="javascript:;" >
+		<div id="goToTop" class="goToTop">TOP</div>
+		</a>
+		<header style="background-image: url(images/pz3.jpg);";>
+		           <div class="clearfix row" style="width: 1024px;height:100px;">
+		               <div class="col-lg-6 col-md-6 col-sm-4" style="text-align: center; padding-top: 15px;">
+		               	<li style="font-family: 楷体;font-size: 60px; color: white;">学校历史</li></br>
+		               </div>
+		                   
+		               </div>
+		</header>
+		<!-- 介绍 -->
+		<div class="one">
+			<div class="card">
+			          <div class="photo"><img src='images/college.jpg' alt=""/></div>
+			          <h1>校训</h1>
+			          <h2>培智  正德  尚行  立新</h2>
+			          <p>文意：培智修能，正心明德，尚行崇实，自立创新</p>
+			          <a href="http://www.peizheng.edu.cn/xxgk1/xysh/gdpzxyxx/index.htm" target="_blank">了解更多</a>
+			     </div>
+			     <div class="card">
+			          <div class="photo"><img src='images/history9.jpg' alt=""/></div>
+			          <h1>校花</h1>
+			          <h2>宫粉紫荆</h2>
+			          <p>校园主要分布区域：十八栋交叉路口</p>
+			          <a href="http://www.peizheng.edu.cn/xxgk1/xysh/gdpzxyxh/index.htm" target="_blank">了解更多</a>
+			     </div>
+			     <div class="card">
+			          <div class="photo"><img src='images/history10.jpg' alt=""/></div>
+			          <h1>学术权杖</h1>
+			          <h2></h2>
+			          <p>在权杖的顶端，是一颗玲珑精致的球，象征着太阳、光明、神圣......</p>
+			          <a href="http://www.peizheng.edu.cn/xxgk1/xysh/gdpzxyxsqz/index.htm" target="_blank">了解更多</a>
+			     </div>
+			
+			
+		</div>
+		<br />
+		<br />
+		
+		<!-- 卡片布局  -->
+		<div class="introduce">
+			<div class="itd1">
+				<img src="images/history1.jpg"/>
+			</div>
+			<div class="c1">
+				<h1>创办历程</h1>
+				<a href="https://vhsagj.smartapps.baidu.com/pages/lemma/lemma?from=bottomBarShare&lemmaId=2970987&lemmaTitle=%E5%B9%BF%E4%B8%9C%E5%9F%B9%E6%AD%A3%E5%AD%A6%E9%99%A2&_swebfr=1&_swebFromHost=baiduboxapp" target="_blank">
+				<p style="width:500px; line-height: 50px;font-size: 20px;">广东培正学院（Guang Dong Peizheng College），位于广东省广州市，是经教育部设立的全日制民办普通本科高校，是广东省首批大学生创新创业教育示范学校，全国非营利性民办高校联盟成员高校。学校创办于1993年，原名私立培正商学院。</p>
+				</a>
+			</div>
+			
+		</div>
+		
+		<div class="introduce">
+			<div class="itd1">
+				<img src="images/huihuang2.jpg"/>
+			</div>
+			<div class="c1">
+				<h1>学校介绍</h1>
+				<a href="http://www.peizheng.edu.cn/xxgk1/xxjs/index.htm" target="_blank">
+				<p style="width:500px; line-height: 50px;font-size: 20px;">广东培正学院坐落于广州市花都区赤坭镇，校园占地面积57.90万平方米，固定资产值8.5亿元，目前在校学生15000余人。</p>
+				</a>
+			</div>
+			
+		</div>
+		
+		<div class="introduce">
+			<div class="itd1">
+				<img src="images/huihuang1.jpg"/>
+			</div>
+			<div class="c1">
+				<h1>辉煌荣誉</h1>
+				<a href="http://pzxyh.peizheng.edu.cn/zxdt/1grifc725fm06.shtml" target="_blank">
+				<p style="width:500px; line-height: 50px;font-size: 20px;">第五届《中国民办教育百强》于2023年2月25～26日在北京大学发布。我校获得“2022-2023（第五届)中国民办教育百强”称号,张曙光董事长受邀出席发布会。</p>
+				</a>
+			</div>
+			
+		</div>
+		
+		<div style=" text-align: center; padding-top:20px;" >
+									<li><br /></li>
+			<li style="font-family: 楷体;font-size: 40px; color: #9e1c18 ;">以创办人命名的建筑</li></br>
+		</div>
+		<div class="storyhead">
+			
+			<HR center width=1024px color=#7f0f0e SIZE=5>
+		</div>
+		<!-- 缩略轮播图 -->
+		<div class="banner">
+		            <div class="large_box">
+		                <ul>
+		                    <li>
+		                        <img src="images/history3.jpg" width="600" height="350">
+		                    </li>
+		                    <li>
+		                        <img src="images/history4.jpg" width="600" height="350">
+		                    </li>
+		                    <li>
+		                        <img src="images/history5.jpg" width="600" height="350">
+		                    </li>
+		                    <li>
+		                        <img src="images/history6.jpg" width="600" height="350">
+		                    </li>
+		                    <li>
+		                        <img src="images/history7.jpg" width="600" height="350">
+		                    </li>
+		                    <li>
+		                        <img src="images/history8.jpg" width="600" height="350">
+		                    </li>
+		                </ul>
+		            </div>
+		            <div class="small_box">
+		                <span class="btns lefts_btn" onclick="left_btn()"></span>
+		                <div class="small_list">
+		                    <ul>
+		                        <li class="on">
+		                            <img src="images/history3.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                        <li class="">
+		                            <img src="images/history4.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                        <li class="">
+		                            <img src="images/history5.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                        <li class="">
+		                            <img src="images/history6.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                        <li class="">
+		                            <img src="images/history7.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                        <li class="">
+		                            <img src="images/history8.jpg" width="100" height="50">
+		                            <div class="bun_bg"></div>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <span class="btns rights_btn" onclick="right_btn()"></span>
+		            </div>
+		        </div>
+		<div class="footer">
+		  <div class="imgs1">
+		  	<li>
+		  		<img src="images/pz.jpg">
+		  	</li>
+		  </div>
+		  <div class="X2"> <li>
+		  	<li><span>关于我们</span>
+		  	<span>|</span>
+		  	<span>联系我们</span>
+		  	<span>|</span>
+		  <span>素材来源于网络</span></li>
+		  </div>
+		</div>
+				
+	</div>
+	
+	</body>
+</html>

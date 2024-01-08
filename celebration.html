@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>celebration</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js">
+			
+			
+		</script>
+		<style type="text/css">
+			 * {
+			            margin: 0;
+			            padding: 0;
+			            box-sizing: border-box;
+			        }
+			
+			        .one {
+			            width: 100%;
+			            height: 100vh;
+			            display: flex;
+			            align-items: center;
+			            justify-content: center;
+			            background-image: url('images/pz5.jpg');
+						
+			            background-size: cover;
+			            background-position: center center;
+			            border-radius: 20px;
+			            backdrop-filter: blur(5px)
+			        }
+					.two {
+					    width: 100%;
+					    height: 100vh;
+					    display: flex;
+					    align-items: center;
+					    justify-content: center;
+					    background-image: url('images/pz7.jpg');
+						
+					    background-size: cover;
+					    background-position: center center;
+					    border-radius: 20px;
+					    backdrop-filter: blur(5px)
+					}
+			        .main {
+						
+			            width: 80%;
+			            height: 80%;
+			            /* 添加毛玻璃效果 */
+			            background-color: rgba(112, 112, 112, 0.5);
+			            border-radius: 10px;
+			        }
+			
+			        /* 总体下来的是三个纵向布局 分别为 头 身体 脚 */
+			        /* 先从头部开始搭建布局 */
+			        .head {
+			            /* head 布局里面又分为标题 和 内容 两个模块 纵向布局  */
+			            /* 可以参考原型图 得知 是居中水平对其  我们可以flex一下*/
+			            display: flex;
+			            justify-content: center;
+			            align-items: center;
+			
+			            /* 给个宽高  分别宽 为 父级的 100%* 高 大概是 20%*/
+			            width: 100%;
+			            height: 20%;
+			        }
+			
+			        .head .text {
+			            width: 30%;
+			            height: 100%;
+			            /* 然后在这个文本盒子里面 包含了标题 和 内容 要水平居中 */
+			            text-align: center;
+			
+			        }
+			
+			        .head .title {
+			            font-weight: 700;
+			            font-size: 32px;
+			            /* 标题 和 内容 要有上下边距 设置margin */
+			            margin-bottom: 16px;
+			        }
+			
+					.one .head .content{
+						font-size: 30px;
+					}
+					.two .head .content{
+						font-size: 20px;
+					}
+			        /* 下面 我们开始进行 最复杂的一块 就是 中间部分的搭建 */
+			        /* 我们可以看出来 中间部分 又可以分为 左  中  右 三部分   */
+			        /* 我们只要依次按照这个顺序 来搭建 就可以了 全程 flex 一把梭 */
+			
+			        .body {
+			            display: flex;
+			            width: 100%;
+			            height: 50%;
+			
+			        }
+			
+			        .left {
+			            /* 使用flex 布局 调整为 两端对其 */
+			            display: flex;
+			            flex-direction: column;
+			            justify-content: space-between;
+			            flex: 0.8;
+			            padding: 16px;
+			        }
+			
+			        .left .icon {
+			            text-align: center;
+			            font-size: 30px;
+			            font-weight: 600;
+			        }
+			
+			        .left .content {
+			            font-size: 16px;
+						color: white;
+			        }
+			
+			        .one .middle {
+			            flex: 1;
+			            /* 设置图片完整展出 */
+			            background-image: url('images/history1.jpg');
+			            background-size: cover;
+			            background-position: center center;
+			            border-radius: 20px;
+			
+			        }
+					.two .middle {
+					    flex: 1;
+					    /* 设置图片完整展出 */
+					    background-image: url('images/pz5.jpg');
+					    background-size: cover;
+					    background-position: center center;
+					    border-radius: 20px;
+								
+					}
+			
+			        .right {
+			            display: flex;
+			            flex-direction: column;
+			            justify-content: space-between;
+			            padding: 16px;
+			            flex: 0.8;
+			        }
+			
+			        .right .icon {
+			            text-align: center;
+			            font-size: 30px;
+			            font-weight: 600;
+			        }
+			
+			        .right .content {
+			            font-size: 16px;
+						color: white;
+			        }
+			
+			        .footer {
+			
+			            display: flex;
+			            align-items: center;
+			            justify-content: center;
+			            width: 100%;
+			            height: 20%;
+			        }
+			
+			        .footer .text {
+			            margin-top: 16px;
+			            width: 30%;
+			            height: 100%;
+			            /* 然后在这个文本盒子里面 包含了标题 和 内容 要水平居中 */
+			            text-align: center;
+			        }
+			
+			        .footer .icon {
+			            font-weight: 700;
+			            font-size: 32px;
+			            /* 标题 和 内容 要有上下边距 设置margin */
+			            margin-bottom: 16px;
+			
+			        }
+			
+			        .footer .content {
+			            margin-bottom: 12px;
+			            font-size: 25px;
+			        }
+			
+			        .footer .btn {
+			            width: 150px;
+			            height: 35%;
+			            border: 0;
+			            background-color: #233333;
+			            color: #fff;
+			            border-radius: 50px;
+			            cursor: pointer;
+			            transition: all 0.5s;
+			
+			        }
+li {
+  display: inline;
+}
+a{
+  text-decoration:none;
+  color: white;
+}
+img{
+	width: 100%;
+	height: 350px;
+}
+/* 活动 */
+.wrapper {
+		  padding-top: 20px;
+		     
+		  /* 声明一个容器 */
+		  display: grid;
+		  /*  声明列的宽度  */
+		  grid-template-columns: repeat(3, 480px);
+		  /*  声明行间距和列间距  */
+		  grid-gap: 10px;
+		  /*  声明行的高度  */
+		  grid-template-rows: 50px 250px;
+		}
+		.four{
+			background:#ab1d22 ;
+		}
+		.five{
+			background:#ab1d22 ;
+		}
+		.six{
+			background:#ab1d22 ;
+		}
+		.item {
+		  text-align: center;
+		  font-size: 20px;
+		  color: #fff;
+		}
+.item li{
+	padding-top: 10px;
+	 
+}
+li{
+		 list-style-type: none;
+}
+/* 回到头部转圈 */
+		:root {
+		    --color: #0ebeff;
+		}
+		
+		@keyframes rotate {
+		    100% {
+		        transform: translate(-50%, -50%) rotate(1turn);
+		    }
+		}
+#goToTop { position: fixed; bottom: 10px; right: 5%; z-index: 9999;}
+	/* 回到顶部样式 */
+
+.goToTop{
+    position: relative;
+    z-index: 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: var(--color);
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+
+    &:hover {
+        color: #fff;
+        box-shadow: 0 0 5px var(--color),
+            0 0 25px var(--color);
+        
+        &::after,
+        &::before {
+            transition: .3s;
+            background: var(--color);
+        }
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 300%;
+        background-color: lightblue;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0;
+        background-image: conic-gradient(var(--color), var(--color));
+        animation: rotate 2s linear infinite;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: lightblue;
+        border-radius: 10px;
+    }
+}
+
+/* 底部 */
+.foooter {
+  margin-top: 30px;
+  background-color:white;
+  text-align: center;
+  font-size: 20px;
+  height: 120px;
+}
+.imgs1{
+  width: 46px;
+  height: 46px;
+}
+.imgs1 img{
+  width: 120px;
+  height: 120px;
+  margin-left: 400px;
+}
+.x1{
+
+}
+.foooter li{
+  list-style-type: none;
+  display: inline;
+
+}
+.foooter li span{
+  padding-left: 20px;
+}
+
+/* 侧边导航栏样式 */
+
+.aa ul {
+	
+   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  bottom: 10px;
+  height: 80%;
+  width: 150px;
+  right: 2%;
+
+   z-index: 9999;
+}
+.aa li {
+  float: center;
+}
+
+.aa li a, .dropbtn {
+	border-radius: 15px;
+	background-color: lightblue;
+  display: inline-block;
+  color: #0534a8;
+  text-align: center;
+  width: 150px;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+
+.aa li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a{
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {background-color:#516d92;}
+
+.dropdown:hover .dropdown-content {
+  display: block;}
+		</style>
+		<script>
+		$(function(){
+		    $('a .goToTop').click(function(){
+		        $('html , body').animate({scrollTop: 0},'slow');
+		    });
+		});
+		</script>
+	</head>
+	<body>
+		<div class="entirety">
+			<!-- 侧边导航栏 -->
+			<div class="aa">
+					<ul>
+			  <li class="dropdown">
+			    <a href="javascript:void(0)" class="dropbtn">导航栏</a>
+			    <div class="dropdown-content">
+			      <a href="index.html">首页</a>
+						<a href="login.html">登录页面</a>
+						<a href="study20.html">学贯二十大</a>
+						<a href="partysjx.html">党的历史</a>
+						<a href="young.html">青年学</a>
+						<a href="celebration">砥砺三十载</a>
+						<a href="history.html">学校历史</a>
+						<a href="view.html">校园风光</a>
+			    </div>
+			  </li>
+			</ul>
+			</div>
+			<!-- 回到顶部 -->
+			<a href="javascript:;" >
+			<div id="goToTop" class="goToTop">TOP</div>
+			</a>
+			<div>
+				<img src="images/college.jpg"/>
+			</div>
+			<div style=" text-align: center;">
+										<li><br /></li>
+				<li style="font-family: 楷体;font-size: 100px; color: #9e1c18 ;">培正三十载</li></br>
+			</div>
+			<!-- 三十载 -->
+			<div class="one damain">
+			<div class="main">
+			        <div class="head">
+			            <div class="text">
+			                <div class="title">创办人</div>
+			                <div class="content">
+			梁尚立
+			                </div>
+			            </div>
+			        </div>
+			
+			
+			       
+			        <div class="body">
+			            <div class="left">
+			                <div class="icon">人生驰骋建功勋<br />（1938—1990）</div>
+			                <div class="content">梁尚立，原籍广东顺德，1920年9月3日生于香港。
+梁尚立的父亲梁培基是民国时期粤港著名的民族工业家，粤港现代医药制造业的奠基人之一，因成功研制专治疟疾的“发冷丸”等中成药而富甲一方。
+梁培基年轻时就读博济医科学校，曾与孙中山同学。1911年4月广州黄花岗起义失败，梁培基与革命党人潘达微一起冒死收殓烈士遗体......
+			                </div>
+			
+			                <div class="icon">特色办学谱华章<br />（1993—2009）</div>
+			                <div class="content">1992年12月，南国广州的冬天流溢着早来的春意。12月12日这天，梁尚立先生前往中国大酒店，拜会时任全国政协常务副主席叶选平。
+叶副主席和梁尚立先生谈论的一个核心话题，是商议在广州成立一家专门学院，以培养国家急需的商业人才。......
+			                </div>
+			            </div>
+			            <!-- 图片-- 插图  -->
+			            <div class="middle"></div>
+			            <!-- 右边 和左边很相似 -->
+			            <div class="right">
+			                <div class="icon"> 行健流芳励后人<br />（2010.9.16）</div>
+			                <div class="content">2010年9月16日12时49分，广东培正学院主要创办人、我们尊敬的老董事长梁尚立先生因病在广州逝世。2010年9月18日，在全国影响广泛的《广州日报》刊登出以下消息：
+广州市原副市长，第三、四、五届全国政协委员，第六、七、八、九届全国政协常委，全国工商联原副主席，广州市政协原副主席、离休干部梁尚立同志，因病医治无效，于2010年9月16日12时49分不幸在广州逝世，享年91岁。......
+			                </div>
+			
+			                <div class="icon">怀仁天下留余音</div>
+			                <div class="content">凌征海副董事长：老董事长非常关心我们学校的学生，2001年的时候有一个学生，是外语系商务英语的一个同学，原来是家里很有钱的，后来做生意失败了。当时她家里要把她介绍给巴西的一个外商的子弟，见了相了面了，对方也同意了，同意她到巴西去。......
+			                </div>
+			            </div>
+			        </div>
+			
+			        <div class="footer">
+			            <div class="text">
+			                <div class="icon"></div>
+			                <div class="content">
+			                    (1920.9.3——2010.9.16)
+								<br />
+								<br />
+			                </div>
+							
+			                <button class="btn"><a href="http://www.peizheng.edu.cn/xxgk1/lcpz/lcpz1/index.htm" target="_blank">了解更多</a></button>
+			
+			            </div>
+			
+			
+			        </div>
+			    </div>
+		</div>
+		<br />
+		<div class="two damain">
+			<div class="main">
+			        <div class="head">
+			            <div class="text">
+			                <div class="title">广东培正学院</div>
+			                <div class="content">
+			广东培正学院创建于1993年，原名私立培正商学院。
+			                </div>
+			            </div>
+			        </div>
+			
+			
+			       
+			        <div class="body">
+			            <div class="left">
+			                <div class="icon">创办</div>
+			                <div class="content">广东培正学院是捐资办学的民办高等学校。学校主要创办人、首任董事长梁尚立先生（1919.9—2010.9）以古稀之年办校，不要任何回报，把个人离休金捐出作为办学经费。......
+			                </div>
+			
+			                <div class="icon">地理位置</div>
+			                <div class="content">广东培正学院坐落于广州市花都区赤坭镇，校园占地面积57.90万平方米，固定资产值8.5亿元，目前在校学生15000余人。......
+			                </div>
+			            </div>
+			            <!-- 图片-- 插图  -->
+			            <div class="middle"></div>
+			            <!-- 右边 和左边很相似 -->
+			            <div class="right">
+			                <div class="icon">地理位置</div>
+			                <div class="content">广东培正学院为教学应用型财经类院校，以管理学、经济学为主干学科，管、经、文、法、艺、工、理等学科相互支撑、协调发展。立足广东，面向现代服务业。
+			                </div>
+			
+			                <div class="icon">学院类型</div>
+			                <div class="content">学校现有外国语学院、管理学院、经济学院、会计学院、法学院、人文学院、数据科学与计算机学院（下设百度云智学院）、艺术学院、创新创业教育学院、马克思主义学院、体育学院、继续教育中心等12个教学单位。......
+			                </div>
+			            </div>
+			        </div>
+			
+			        <div class="footer">
+			            <div class="text">
+			                <br />
+							<br />
+			                <button class="btn"><a href="history.hyml" target="_blank">了解更多</a></button>
+			
+			            </div>
+			
+			
+			        </div>
+			    </div>
+		</div>
+		<!-- 三十载 活动 -->
+		<br />
+		<br />
+		<div class="storyhead">
+			<h1 style="color: #ab1d22; text-align: center;font-size: 45px;">建校三十周年活动</h1>
+			<HR center width=1400px color=#ab1d22 SIZE=5>
+		</div>
+		<br />
+		<div class="wrapper">
+		  <div class="four item"">
+			  <li> <a href="https://mp.weixin.qq.com/s/EhehFlhSvBCLE9sfW56V7A" target=_blank>
+			  “学贯二十大，砥砺三十载”数科院学生第二党支部第二届网页设计大赛
+			  </a>
+			  </li>
+			  </div>
+		  <div class="five item">
+			  <li> <a href="https://mp.weixin.qq.com/s/TqKkN7G_9tCJ739yYMTcZQ" target=_blank>
+			  广东培正学院30周年校庆| 艺术学院系列活动
+			  </a>
+			  </li>
+			  </div>
+		  <div class="six item">
+			  <li> <a href="https://mp.weixin.qq.com/s/vyUJ0zmKkO8untXXGnHIPQ" target=_blank>
+			  “丹青画笔绘情怀，共贺培正三十载”
+			  </a>
+			  </li>
+			  </div>
+		  <div class="four item"><a href="https://mp.weixin.qq.com/s/EhehFlhSvBCLE9sfW56V7A" target=_blank><img src="images/activity1.jpg"/></a></div>
+		  <div class="five item"><a href="https://mp.weixin.qq.com/s/TqKkN7G_9tCJ739yYMTcZQ" target=_blank><img src="images/activity2.jpg"/></a></div>
+		  <div class="five item"><a href="https://mp.weixin.qq.com/s/vyUJ0zmKkO8untXXGnHIPQ" target=_blank><img src="images/activity3.jpg"/></a></div>
+		  
+		  
+		
+		
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="wrapper">
+		  <div class="four item"">
+			  <li> <a href="https://mp.weixin.qq.com/s/WeYIhTUqbOr9u8TJvsfaPQ" target=_blank>
+			  “卅载共成长，青春有梦想”  
+			  </a>
+			  </li>
+			  </div>
+		  <div class="five item">
+			  <li> <a href="https://mp.weixin.qq.com/s/qDDox1kPQHjmJAfwlwVPAA" target=_blank>
+			  迎三十盛典 书写新篇章
+			  </a>
+			  </li>
+			  </div>
+		  <div class="six item">
+			  <li> <a href="https://mp.weixin.qq.com/s/bXm5v_yncvslvEuNas6Xkg" target=_blank>
+			  “笔底春风三十载，共为旧绘添新彩”
+			  </a>
+			  </li>
+			  </div>
+		  <div class="four item"><a href="https://mp.weixin.qq.com/s/WeYIhTUqbOr9u8TJvsfaPQ" target=_blank><img src="images/activity4.jpg"/></a></div>
+		  <div class="five item"><a href="https://mp.weixin.qq.com/s/qDDox1kPQHjmJAfwlwVPAA" target=_blank><img src="images/activity5.jpg"/></a></div>
+		  <div class="five item"><a href="https://mp.weixin.qq.com/s/bXm5v_yncvslvEuNas6Xkg" target=_blank><img src="images/activity6.jpg"/></a></div>
+		  
+		  
+		
+		
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="foooter">
+		  <div class="imgs1">
+		  	<li>
+		  		<img src="images/pz.jpg">
+		  	</li>
+		  </div>
+		  <div class="X2"> <li>
+		  	<li><span>关于我们</span>
+		  	<span>|</span>
+		  	<span>联系我们</span>
+		  	<span>|</span>
+		  <span>素材来源于网络</span></li>
+		  </div>
+		</div>
+	</div>
+	</body>
+</html>

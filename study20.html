@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>20</title>
+<link rel="stylesheet" href="css/gundong.css"/>
+<style type="text/css">
+#pullDownNavigation .navigation{
+position: relative;
+float: left;
+border: 1px solid #033;
+width: 19%;
+height: 35px;
+text-align: center;
+z-index:2;
+top:380px;
+left:2%;
+}
+.pullDownNavigationc{
+position: relative;
+float: left;
+top: -1px;
+overflow: hidden;
+height: 60px;
+text-align: center ;
+width: 99%;
+border: 1px solid #033;
+border-top: 0px;
+display: none;
+}
+.navigation .nav{
+height: 35px;
+line-height: 30px ;
+overflow:hidden;
+}
+a{text-decoration:none;}
+#scroll {
+    margin: 3px;
+    padding: 2px 0;
+    list-style: none;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border: 1px #e5e5e5 solid;
+    font-size: 50px;
+    color: #D11216;
+    position: relative;
+    left: 0px;
+    top: 550px;
+}
+#scroll li {
+    margin: 3px;
+    padding: 0 4px;
+    font-size: 20px;
+    height: 25px;
+    line-height: 50px;
+    width:100%;
+    text-align: center;
+    font-family:幼圆;
+	position:relative;
+}
+
+</style>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    var t=0;
+    var str="学贯二十大，砥砺三十载";
+    var time=new Date();
+    window.onload = function()
+    {
+        var mydiv1 = document.getElementById("text1");
+        mydiv1.innerHTML =str;
+        function txtreset1() {
+            mydiv1.innerHTML = null;
+        };
+        var txt3=setTimeout(txtreset1,9950)
+        //banner图片滚动
+        var oDiv = document.getElementById("div1");
+        var oUl = oDiv.getElementsByTagName("ul")[0];
+        var Li = oUl.getElementsByTagName("li");
+        oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;
+        oUl.style.width = Li[0].offsetWidth*Li.length+'px';
+        var speed = 2;
+        function move()
+        {
+            if (oUl.offsetLeft<-oUl.offsetWidth/2)
+            {
+                oUl.style.left = 0;
+            }
+            else if (oUl.offsetLeft>0)
+            {
+                oUl.style.left = -oUl.offsetWidth/2 + "px";
+            }
+            oUl.style.left = oUl.offsetLeft +speed + "px";
+        }
+        var timer = setInterval(move,30)
+        oDiv.onmouseover = function()
+        {
+            clearInterval(timer);
+        }
+        oDiv.onmouseout = function()
+        {
+            timer=setInterval(move,30);
+        }
+         
+        //每5秒显示文字
+        var txt0 = setInterval(typing, 9950)
+        function typing(){
+            var mydiv = document.getElementById("text1");
+            mydiv.innerHTML += str.charAt(t);
+            t++;
+            var id = setTimeout(typing, 150);
+            if (t > str.length) {
+                clearTimeout(id);
+                function txtreset() {
+                    mydiv.innerHTML = null;
+                };
+                var txt1=setTimeout(txtreset,5000)
+                t=0;
+            }
+        }
+        //滚动文字
+        function dMarquee(id) {
+            var speed =15; //速度
+            var stop = 1000; //停止时间
+            var ul = document.getElementById(id);//获取ul元素
+            var rows = ul.getElementsByTagName('li').length;//获取li个数
+           var height = ul.getElementsByTagName('li')[0].offsetHeight;//取得第一个li的高度
+            ul.innerHTML += ul.innerHTML;//获取所有li
+            var timeID = false;//setTime的时间标示
+            var play = function () { //移动方法
+                ul.scrollTop++;//移动滚动条
+                //移动到底的时候恢复为零
+                if (ul.scrollTop === rows * height) {
+                    ul.scrollTop = 0;
+                }
+                //每次滚动
+                if (ul.scrollTop % height === 0) {
+                    timeID = setTimeout(play, stop);
+                } else {
+                    timeID = setTimeout(play, speed);
+                }
+            }
+            timeID = setTimeout(play, stop);
+            ul.onmouseover = function () {
+                clearTimeout(timeID);
+            }
+            ul.onmouseout = play;
+        }
+        dMarquee('scroll')
+
+    };   
+	// 回顶部
+    $(function(){
+        $('a .goToTop').click(function(){
+            $('html , body').animate({scrollTop: 0},'slow');
+        });
+    });
+</script>
+<style type="text/css">
+	
+		/* 侧边导航栏样式 */
+		
+		.aa ul {
+			
+		   list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  overflow: hidden;
+		  position: fixed;
+		  bottom: 10px;
+		  height: 80%;
+		  width: 130px;
+		  right: 3%;
+		
+		   z-index: 9999;
+		}
+		.aa li {
+		  float: center;
+		}
+		
+		.aa li a, .dropbtn {
+			border-radius: 15px;
+			background-color: #e7bfb8;
+		  display: inline-block;
+		  color: red;
+		  text-align: center;
+		  width: 100px;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  
+		}
+		
+		.aa li.dropdown {
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  font-size: bold;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		}
+		
+		.dropdown-content a{
+		  color: black;
+		  padding: 12px 10px;
+		  text-decoration: none;
+		  display: block;
+		  text-align: center;
+		}
+		
+		.dropdown-content a:hover {background-color:darkred;}
+		
+		.dropdown:hover .dropdown-content {
+		  display: block;}
+	/* 回到头部转圈 */
+		
+			:root {
+			    --color: #a92b3c;
+			}
+			
+			@keyframes rotate {
+			    100% {
+			        transform: translate(-50%, -50%) rotate(1turn);
+			    }
+			}
+		/* 回到顶部样式 */
+	#goToTop { position: fixed; bottom: 10px; right: 3%; z-index: 9999;}
+		
+	.goToTop{
+	    position: absolute;
+	    z-index: 0;
+	    width: 100px;
+	    height: 40px;
+	    line-height: 40px;
+	    color: var(--color);
+	    font-size: 24px;
+	    border-radius: 10px;
+	    text-align: center;
+	    margin: auto;
+	    overflow: hidden;
+	    cursor: pointer;
+	    transition: .3s;
+	    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+	
+	    &:hover {
+	        color: #fff;
+	        box-shadow: 0 0 5px var(--color),
+	            0 0 25px var(--color);
+	        
+	        &::after,
+	        &::before {
+	            transition: .3s;
+	            background: var(--color);
+	        }
+	    }
+	    
+	    &::before {
+	        content: '';
+	        position: absolute;
+	        z-index: -2;
+	        left: 50%;
+	        top: 50%;
+	        transform: translate(-50%, -50%);
+	        width: 150%;
+	        height: 300%;
+	        background-color: #e7bfb8;
+	        background-repeat: no-repeat;
+	        background-size: 50% 50%;
+	        background-position: 0 0;
+	        background-image: conic-gradient(var(--color), var(--color));
+	        animation: rotate 2s linear infinite;
+	    }
+	    
+	    &::after {
+	        content: '';
+	        position: absolute;
+	        z-index: -1;
+	        left: 2px;
+	        top: 2px;
+	        width: calc(100% - 4px);
+	        height: calc(100% - 4px);
+	        background: #e7bfb8;
+	        border-radius: 10px;
+	    }
+	}
+	
+</style>
+</head>
+<body>
+	<div class="entirety">
+	<div class="aa">
+			<ul>
+	  <li class="dropdown">
+	    <a href="javascript:void(0)" class="dropbtn">导航栏</a>
+	    <div class="dropdown-content">
+	      <a href="index.html">首页</a>
+				<a href="login.html">登录页面</a>
+				<a href="study20.html">学贯二十大</a>
+				<a href="partysjx.html">党的历史</a>
+				<a href="young.html">青年学</a>
+				<a href="celebration.html">砥砺三十载</a>
+				<a href="history.html">学校历史</a>
+				<a href="view.html">校园风光</a>
+	    </div>
+	  </li>
+	</ul>
+	</div>
+	<a href="javascript:;" >
+	<div id="goToTop" class="goToTop">回顶部</div>
+	</a>
+<img src="img/sc3.jpeg" width=100% height=450px style="top:0px; position: absolute; left: 0px;">
+
+<div id="div1">
+    <ul id="ul1">
+        <li><img src="img/party1.jpg"></li>
+        <li><img src="img/party2.jpg"></li>
+        <li><img src="img/party3.jpg"></li>
+        <li><img src="img/party4.jpg"></li>
+        <li><img src="img/party6.jpg"></li>
+    </ul>
+</div>
+
+<div id="text1" style="width: 80%; height: 30px; left: 10%; position:relative; font-family:幼圆; text-align:center; padding-top:10px; top:520px;background: #A40D10;color: #FFFFFF;">
+
+</div>
+<div id="div3">
+<ul id="scroll">
+    <li>认真学习宣传贯彻党的二十大精神</li>
+    <li>新时代 新征程 争出彩</li>
+    <li>学报告 悟思想 开新局</li>
+    <li>高举中国特色社会主义伟大旗帜 全面建设社会主义现代化国家</li>
+    <li>人民有信仰 国家有力量 民族有希望</li>
+    <li>永远把人民对美好生活的向往作为奋斗目标</li>
+    <li>为人民谋幸福 为民族谋复兴 为世界谋大同</li>
+    <li>举旗帜 聚民心 育新人 兴文化 展形象</li>
+    <li>增强实现中华民族伟大复兴的精神力量</li>
+    <li>人民是党执政兴国的最大底气</li>
+    <li>团结奋进新征程 凝心聚力谱新篇</li>
+    <li>以中国式现代化全面推进中华民族伟大复兴</li>
+    <li>加快构建新发展格局 着力推动高质量发展</li>
+    <li>发展全过程人民民主 保障人民当家作主</li>
+    <li>坚持全面依法治国 推进法治中国建设</li>
+    <li>推动绿色发展 促进人与自然和谐共生</li>
+    <li>增进民生福祉 提高人民生活品质</li>
+    <li>自信自强 守正创新 踔厉奋发 勇毅前行</li>
+    <li>促进世界和平与发展 推动构建人类命运共同体</li>
+    <li>贯彻新发展理念是新时代我国发展壮大的必由之路</li>
+    <li>实施科教兴国战略，强化现代化建设人才支撑</li>
+    <li>旗帜决定方向 道路决定命运</li>
+    <li>奋进新征程 建功新时代</li>
+    <li>传承红色基因 赓续精神血脉</li>
+</ul>
+</div>
+<div style="position: relative; width: 100%; height: 60px; top: 550px; font-family: 幼圆; text-align: center; font-size: 30px; color:#FFFBCD; background-color: #BC2424; line-height:60px;">
+<p>深入学习贯彻习近平新时代中国特色社会主义思想</p>
+</div>
+<div style="width:90%; height:1500px; position:relative; left:5%; font-family:幼圆; top:600px;">
+<table border="1" bordercolor="#000000" style="width:100%; height:1500px; border-color:#AEDADB;">
+  <tr style="width:100%; height:18%">
+    <td style="width:40%;"><div align="center"><img src="img/lb1.jpg" style="width:100%; height:80%"></div></td>
+    <td style="width:50%; text-align: center; padding: 20px;">
+      <p style="font-size: 30px; color:#A40D10;"><a href="http://www.gov.cn/xinwen/2023-02/07/content_5740520.htm">习近平在学习贯彻党的二十大精神研讨班开班式上发表重要讲话</a>
+</p>
+      <p style="font-size: 15px; color: #000000">2月7日，新进中央委员会的委员、候补委员和省部级主要领导干部学习贯彻习近平新时代中国特色社会主义思想和党的二十大精神研讨班在中央党校（国家行政学院）开班。中共中央总书记、国家主席、中央军委主席习近平在开班式上发表重要讲话。</p>
+    </form></td>
+   
+  </tr>
+  <tr style="width:100%; height:18%">
+    <td style="width:40%;"><div align="center"><img src="img/lb2.jpg" style="width:100%; height:80%"></div></td>
+    <td style="width:50%;text-align: center; padding: 20px;"><form name="form1" method="post" action="">
+      <p style="font-size: 30px; color:#A40D10;"><a href="http://www.gov.cn/xinwen/2022-10/25/content_5721613.htm">新征程领路人习近平</a></p>
+      <p style="font-size: 15px; color: #000000">2022年10月23日，刚刚在中国共产党第二十届中央委员会第一次全体会议上当选的中共中央总书记习近平和中共中央政治局常委李强、赵乐际、王沪宁、蔡奇、丁薛祥、李希在北京人民大会堂同采访中共二十大的中外记者亲切见面。这是习近平向在场的中外记者挥手致意。</p>
+    </form></td>
+    
+  </tr>
+   <tr style="width:100%; height:18%">
+    <td style="width:40%;"><div align="center"><img src="img/lb3.jpg" style="width:100%; height:80%"></div></td>
+    <td style="width:50%; text-align: center; padding: 20px;">
+      <p style="font-size: 30px; color:#A40D10;"><a href="http://www.gov.cn/xinwen/2022-10/23/content_5720998.htm">习近平：始终坚持一切为了人民一切依靠人民 以中国式现代化全面推进中华民族伟大复兴</a>
+</p>
+      <p style="font-size: 15px; color: #000000">10月23日，刚刚在中国共产党第二十届中央委员会第一次全体会议上当选的中共中央总书记习近平和中共中央政治局常委李强、赵乐际、王沪宁、蔡奇、丁薛祥、李希在北京人民大会堂同采访中共二十大的中外记者亲切见面。这是习近平发表重要讲话。</p>
+    </form></td>
+   
+  </tr>
+    
+  
+  <tr style="width:100%; height:18%">
+    <td style="width:40%;"><div align="center"><img src="img/lb4.jpg" style="width:100%; height:80%"></div></td>
+    <td style="width:50%; text-align: center; padding: 20px;">
+      <p style="font-size: 30px; color:#A40D10;"><a href="http://www.gov.cn/xinwen/2022-10/23/content_5720986.htm#1">习近平等二十届中共中央政治局常委同中外记者见面</a>
+</p>
+      <p style="font-size: 15px; color: #000000">10月23日，刚刚在中国共产党第二十届中央委员会第一次全体会议上当选的中共中央总书记习近平和中共中央政治局常委李强、赵乐际、王沪宁、蔡奇、丁薛祥、李希在北京人民大会堂同采访中共二十大的中外记者亲切见面。</p>
+    </form></td>
+   
+  </tr>
+    
+  <tr style="width:100%; height:18%">
+    <td style="width:40%;"><div align="center"><img src="img/lb5.jpg" style="width:100%; height:80%"></div></td>
+    <td style="width:50%; text-align: center; padding: 20px;">
+      <p style="font-size: 30px; color:#A40D10;"><a href="http://www.gov.cn/xinwen/2022-10/23/content_5720983.htm">中国共产党第二十届中央委员会第一次全体会议公报</a>
+</p>
+      <p style="font-size: 15px; color: #000000">10月23日，中国共产党第二十届中央委员会第一次全体会议在北京人民大会堂举行。习近平同志主持会议并在当选中共中央委员会总书记后作重要讲话。</p>
+    </form></td>
+</tr>
+</table>
+</div>
+</div>
+</body>
+</html>

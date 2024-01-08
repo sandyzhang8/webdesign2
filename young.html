@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>young</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js">
+		
+	</script>
+	<style type="text/css">
+		*{
+		  margin:0;
+		  padding:0;
+		}
+		.entirety{
+		  width: 1400px;
+		  margin: 0 auto;
+		}
+		
+		.wrapper {
+		  padding-top: 20px;
+		  
+		  /* 声明一个容器 */
+		  display: grid;
+		  /*  声明列的宽度  */
+		  grid-template-columns: repeat(3, 460px);
+		  /*  声明行间距和列间距  */
+		  grid-gap: 10px;
+		  /*  声明行的高度  */
+		  grid-template-rows: 50px 250px;
+		}
+		.one {
+		  background: #7f0f0e;
+		}
+		.two { 
+		  background: #7f0f0e;
+		}
+		.three {
+		  background: #7f0f0e;
+		}
+		.four{
+			background:#80bfa5 ;
+		}
+		.five{
+			background:#80bfa5 ;
+		}
+		.six{
+			background:#80bfa5 ;
+		}
+		.item {
+		  text-align: center;
+		  font-size: 20px;
+		  color: #fff;
+		}
+.item li{
+	padding-top: 10px;
+	 
+}
+li{
+		 list-style-type: none;
+}
+.four li{
+	text-align: left;
+	margin-left: 5px;
+    margin-top:-12px ;
+}
+.five li{
+	text-align: left;
+	margin-left: 5px;
+    margin-top:-12px ;
+}
+.six li{
+	text-align: left;
+	margin-left: 5px;
+    margin-top:-12px ;
+}
+.item li a{
+  text-decoration:none;
+  font-size: 20px;
+  color: #fff;
+}
+/* 实现图片等比例缩小不变形  */
+img{
+/*等宽缩小不变形*/
+width: 100%;
+/*二选一*/
+/*等高缩小不变形*/
+/* height: 100%; */
+}
+/* 按钮 */
+.b{
+	text-align: center;
+	padding-top: 35px;
+}
+.btn {
+	font-size: 15px;
+	 width: 350px;
+	height: 50px;
+	border: 0;
+	background-color:#7f0f0e;		            
+	color: #fff;		          
+	border-radius: 50px;		            
+	cursor: pointer;		            
+	ransition: all 0.5s;			            t		            		            	           
+			
+			        }
+/* 底部 */
+.footer {
+  margin-top: 40px;
+  background-color:white;
+  text-align: center;
+  font-size: 20px;
+  height: 120px;
+}
+.imgs1{
+  width: 46px;
+  height: 46px;
+}
+.imgs1 img{
+  width: 120px;
+  height: 120px;
+  margin-left: 350px;
+}
+.x1{
+
+}
+.footer li{
+  list-style-type: none;
+  display: inline;
+
+}
+.footer li span{
+  padding-left: 20px;
+}
+/* 回到头部转圈 */
+		:root {
+		    --color: #5dd9c1;
+		}
+		
+		@keyframes rotate {
+		    100% {
+		        transform: translate(-50%, -50%) rotate(1turn);
+		    }
+		}
+#goToTop { position: fixed; bottom: 10px; right: 5%; z-index: 9999;}
+	/* 回到顶部样式 */
+
+.goToTop{
+    position: relative;
+    z-index: 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: var(--color);
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+
+    &:hover {
+        color: #fff;
+        box-shadow: 0 0 5px var(--color),
+            0 0 25px var(--color);
+        
+        &::after,
+        &::before {
+            transition: .3s;
+            background: var(--color);
+        }
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 300%;
+        background-color: #acfcd9;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0;
+        background-image: conic-gradient(var(--color), var(--color));
+        animation: rotate 2s linear infinite;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background:  #acfcd9;
+        border-radius: 10px;
+    }
+}
+a{
+  text-decoration:none;
+}
+/* 侧边导航栏样式 */
+	
+	.aa ul {
+		
+	   list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  position: fixed;
+	  bottom: 10px;
+	  height: 80%;
+	  width: 150px;
+	  right: 3%;
+	
+	   z-index: 9999;
+	}
+	.aa li {
+	  float: center;
+	}
+	
+	.aa li a, .dropbtn {
+		border-radius: 15px;
+		background-color: #acfcd9;
+	  display: inline-block;
+	  color: green;
+	  text-align: center;
+	  width: 90px;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  
+	}
+	
+	.aa li.dropdown {
+	  display: inline-block;
+	}
+	
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+	
+	.dropdown-content a{
+	  color: black;
+	  padding: 12px 10px;
+	  text-decoration: none;
+	  display: block;
+	  text-align: center;
+	  
+	}
+	
+	.dropdown-content a:hover {background-color:greenyellow;}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;}
+	</style>
+	<script>
+	$(function(){
+	    $('a .goToTop').click(function(){
+	        $('html , body').animate({scrollTop: 0},'slow');
+	    });
+	});
+	</script>
+	</head>
+	<body>
+		<div class="entirety">
+			<div class="aa">
+					<ul>
+			  <li class="dropdown">
+			    <a href="javascript:void(0)" class="dropbtn">导航栏</a>
+			    <div class="dropdown-content">
+			      <a href="index.html">首页</a>
+						<a href="login.html">登录页面</a>
+						<a href="study20.html">学贯二十大</a>
+						<a href="partysjx.html">党的历史</a>
+						<a href="young.html">青年学</a>
+						<a href="celebration.html">砥砺三十载</a>
+						<a href="history.html">学校历史</a>
+						<a href="view.html">校园风光</a>
+			    </div>
+			  </li>
+			</ul>
+			</div>
+			<a href="javascript:;" >
+			<div id="goToTop" class="goToTop">TOP</div>
+			</a>
+			<!-- 头部 -->
+			<header style="background-color: #b4dede; width: 1400px;">
+			           <div class="clearfix row" style="width: 1400px;height:150px;">
+			               <div style=" text-align: center;">
+							<li><br /></li>
+			               	<li style="font-family: 楷体;font-size: 100px; color: #539c9b ;">青年学</li></br>
+			               </div>
+			         </div>
+			</header>
+			<!-- 青年大学习 -->
+			<div class="storyhead">
+				<h1 style="color: #80bfa5; text-align: center;font-size: 45px;">青年大学习</h1>
+				<HR center width=1400px color=#80bfa5 SIZE=5>
+			</div>
+			<div class="wrapper">
+			  <div class="four item"">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/fi4bq1cx7e/index.html" target=_blank>
+				  青年大学习：学习习近平总书记给中国冰雪健儿的回信
+				  </a>
+				  </li>
+				  </div>
+			  <div class="five item">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/fu4nh1pd0k/index.html" target=_blank>
+				  青年大学习：学习习近平总书记考察闽江学院重要讲话精神
+				  </a>
+				  </li>
+				  </div>
+			  <div class="six item">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/fy4cz0q3sa/index.html" target=_blank>
+				  青年大学习：学习习近平总书记考察西安交通大学时重要讲话精神
+				  </a>
+				  </li>
+				  </div>
+			  <div class="four item"><a href="https://h5.cyol.com/special/daxuexi/fi4bq1cx7e/index.html" target=_blank><img src="images/learn1.jpg"/></a></div>
+			  <div class="five item"><a href="https://h5.cyol.com/special/daxuexi/fu4nh1pd0k/index.html" target=_blank><img src="images/learn2.jpg"/></a></div>
+			  <div class="five item"><a href="https://h5.cyol.com/special/daxuexi/fy4cz0q3sa/index.html" target=_blank><img src="images/learn3.jpg"/></a></div>
+			  
+			  
+			</div>
+			<div class="wrapper">
+			  <div class="four item"">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/ft3xk2ap7q/index.html" target=_blank>
+				  青年大学习：学习习近平总书记给南开大学8名新入伍大学生回信精神
+				  </a>
+				  </li>
+				  </div>
+			  <div class="five item">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/fr3np2q0vg/index.html" target=_blank>
+				  青年大学习:学习习近平总书记给复旦大学 《共产党宣言》展示馆党员志愿服务队全体队员回信
+				  </a>
+				  </li>
+				  </div>
+			  <div class="six item">
+				  <li> <a href="https://h5.cyol.com/special/daxuexi/fe3ao1cm3k/index.html" target=_blank>
+				  青年大学习：学习习近平总书记视察暨南大学时重要讲话精神
+				  </a>
+				  </li>
+				  </div>
+			  <div class="four item"><a href="https://h5.cyol.com/special/daxuexi/ft3xk2ap7q/index.html" target=_blank><img src="images/learn4.jpg"/></a></div>
+			  <div class="five item"><a href="https://h5.cyol.com/special/daxuexi/fr3np2q0vg/index.html" target=_blank><img src="images/learn5.jpg"/></a></div>
+			  <div class="five item"><a href="https://h5.cyol.com/special/daxuexi/fe3ao1cm3k/index.html" target=_blank><img src="images/learn6.jpg"/></a></div>
+			</div>
+			<br />
+			<br />
+			<!-- 中国故事 -->
+		<div class="storyhead">
+			<h1 style="color: #7f0f0e; text-align: center;font-size: 45px;">中国故事</h1>
+			<HR center width=1400px color=#7f0f0e SIZE=5>
+		</div>
+		<div class="wrapper">
+		  <div class="one item"">
+			  <li> <a href="http://news.cyol.com/gb/articles/2021-06/11/content_Q9ZRjIjVG.html" target=_blank>
+			  窑洞里传出“红色声音”
+			  </a>
+			  </li>
+			  </div>
+		  <div class="two item">
+			  <li> <a href="http://news.cyol.com/gb/articles/2020-10/22/content_VWb7Jsv0E.html" target=_blank>
+			  抗美援朝特辑：战地家书
+			  </a>
+			  </li>
+			  </div>
+		  <div class="three item">
+			  <li> <a href="http://news.cyol.com/gb/articles/2021-06/18/content_jZgqbuwgj.html" target=_blank>
+			  新中国的“钱袋子”
+			  </a>
+			  </li>
+			  </div>
+		  <div class="four item"><a href="http://news.cyol.com/gb/articles/2021-06/11/content_Q9ZRjIjVG.html" target=_blank><img src="images/story1.jpg"/></a></div>
+		  <div class="five item"><a href="http://news.cyol.com/gb/articles/2020-10/22/content_VWb7Jsv0E.html" target=_blank><img src="images/story2.jpg"/></a></div>
+		  <div class="five item"><a href="http://news.cyol.com/gb/articles/2021-06/18/content_jZgqbuwgj.html" target=_blank><img src="images/story3.jpg"/></a></div>
+		  
+		  
+		</div>
+		<div class="wrapper">
+		  <div class="one item"">
+			  <li> <a href="http://news.cyol.com/gb/articles/2021-06/26/content_vml5lUlLZ.html" target=_blank>
+			  红色审计守初心
+			  </a>
+			  </li>
+			  </div>
+		  <div class="two item">
+			  <li> <a href="http://news.cyol.com/gb/articles/2021-09/24/content_g5ZKbclKW.html" target=_blank>
+			  抗疫：患难见真情
+			  </a>
+			  </li>
+			  </div>
+		  <div class="three item">
+			  <li> <a href="http://news.cyol.com/gb/articles/2022-10/15/content_6yJ3XTjRb.html" target=_blank>
+			  逐梦太空
+			  </a>
+			  </li>
+			  </div>
+		  <div class="four item"><a href="http://news.cyol.com/gb/articles/2021-06/26/content_vml5lUlLZ.html" target=_blank><img src="images/story4.jpg"/></a></div>
+		  <div class="five item"><a href="http://news.cyol.com/gb/articles/2021-09/24/content_g5ZKbclKW.html" target=_blank><img src="images/story5.jpg"/></a></div>
+		  <div class="five item"><a href="http://news.cyol.com/gb/articles/2022-10/15/content_6yJ3XTjRb.html" target=_blank><img src="images/story6.jpg"/></a></div>
+		</div>
+		<!-- 学习更多按钮 -->
+		<div class="b"><a href="http://news.cyol.com/gb/channels/VDWYgJ1j/index.html" target="_blank"><button class="btn">学习更多<br />Learn More</button></a></div>
+		<!-- 脚部 -->
+		<div class="footer">
+		  <div class="imgs1">
+		  	<li>
+		  		<img src="images/pz.jpg">
+		  	</li>
+		  </div>
+		  <div class="X2"> 
+		  	<li><span>关于我们</span>
+		  	<span>|</span>
+		  	<span>联系我们</span>
+		  	<span>|</span>
+		  <span>素材来源于网络</span></li>
+		  </div>
+		</div>
+		</div>
+		
+	</body>
+</html>

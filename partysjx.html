@@ -1,0 +1,811 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>sjx</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+
+#apDiv2 {
+	position: absolute;
+	left: 0%;
+	top: 400px;
+	width: 100%;
+	height:8500px;
+	z-index: 1;
+}
+.li1{font-size:18px; color:#000;}
+#apDiv1 {
+	position: absolute;
+	left: 144px;
+	top: 21px;
+	width: 98px;
+	height: 28px;
+	z-index: 2;
+}
+.a1{color:#FFF; }
+.footer {
+  padding-top: 10px;
+  background-color: white;
+  font-size: 20px;
+  height: 120px;
+}
+.i1{
+  width: 46px;
+  height: 46px;
+}
+.i1 img{
+  width: 120px;
+  height: 120px;
+  margin-left:60px;
+}
+.x1{
+position: absolute;	
+	top: 0px;
+	left: 20%;
+	width: 55%;
+	height: 100%;
+	z-index: 3;
+}
+	
+.X2{
+	position: absolute;
+	top: 8800px;
+	z-index: 1;
+	}
+.footer li{
+  list-style-type: none;
+  margin-left: 170px;
+  display: inline;
+
+}
+.footer li span{
+  padding-left: 20px;
+}
+	/* 侧边导航栏样式 */
+	
+	.aa ul {
+		
+	   list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  position: fixed;
+	  bottom: 10px;
+	  height: 80%;
+	  width: 150px;
+	  right: 3%;
+	
+	   z-index: 9999;
+	}
+	.aa li {
+	  float: center;
+	}
+	
+	.aa li a, .dropbtn {
+		border-radius: 15px;
+		background-color: #e7bfb8;
+	  display: inline-block;
+	  color: red;
+	  text-align: center;
+	  width: 100px;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  
+	}
+	
+	.aa li.dropdown {
+	  display: inline-block;
+	}
+	
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+	
+	.dropdown-content a{
+	  color: black;
+	  padding: 12px 10px;
+	  text-decoration: none;
+	  display: block;
+	  text-align: center;
+	}
+	
+	.dropdown-content a:hover {background-color:darkred;}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;}
+/* 回到头部转圈 */
+	
+		:root {
+		    --color: #a92b3c;
+		}
+		
+		@keyframes rotate {
+		    100% {
+		        transform: translate(-50%, -50%) rotate(1turn);
+		    }
+		}
+	/* 回到顶部样式 */
+#goToTop { position: fixed; bottom: 10px; right: 5%; z-index: 9999;}
+	
+.goToTop{
+    position: absolute;
+    z-index: 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: var(--color);
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+
+    &:hover {
+        color: #fff;
+        box-shadow: 0 0 5px var(--color),
+            0 0 25px var(--color);
+        
+        &::after,
+        &::before {
+            transition: .3s;
+            background: var(--color);
+        }
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 300%;
+        background-color: #e7bfb8;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0;
+        background-image: conic-gradient(var(--color), var(--color));
+        animation: rotate 2s linear infinite;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: #e7bfb8;
+        border-radius: 10px;
+    }
+}
+
+a{
+  text-decoration:none;
+}
+ #entirety{
+  width: 1003px;
+  margin: 0 auto;
+ }
+
+</style>
+  <script>
+    // 回顶部
+        $(function(){
+            $('a .goToTop').click(function(){
+                $('html , body').animate({scrollTop: 0},'.fast');
+            });
+        });
+    </script>
+</head>
+
+<body>
+  <div id="entirety">
+   <div class="aa">
+   		<ul>
+     <li class="dropdown">
+       <a href="javascript:void(0)" class="dropbtn">导航栏</a>
+       <div class="dropdown-content">
+         <a href="index.html">首页</a>
+   			<a href="login.html">登录页面</a>
+   			<a href="study20.html">学贯二十大</a>
+   			<a href="partysjx.html">党的历史</a>
+   			<a href="young.html">青年学</a>
+   			<a href="celebration.html">砥砺三十载</a>
+   			<a href="history.html">学校历史</a>
+   			<a href="view.html">校园风光</a>
+       </div>
+     </li>
+   </ul>
+   </div>
+  <a href="javascript:;">
+  <div id="goToTop" class="goToTop">回顶部</div>
+  </a>
+<div id="apDiv2" >
+
+  <ul class="x1" type="disc" style="font-weight: bold; font-size: 24px; font-family: '仿宋'; color:#900;">
+    <li><p>1921（中共一大）</p></li>
+    <ul class="li1"><li>
+      <p>1921年7月23日，中国共产党第一次全国代表大会在上海开幕
+      </p>
+    </li>
+    <li>
+      <p>出席中共一大的人员，平均年龄是28岁
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1922（中共二大）</p>      
+    </li>
+    <ul class="li1"><li>
+      <p>中共二大第一次提出明确的反帝反封建的民主革命纲领       
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1923（中共三大）</p>
+    </li>
+     <ul class="li1"><li>
+      <p>国共合作实现后，以广州为中心，很快开创了反对帝国主义和封建军阀的革命新局面。<br>
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1925（中共四大）</p>
+    </li>
+    <ul class="li1"><li>
+      <p>1925年6月11日，上海举行群众大会，到会20多万人，全国各地约有1700万人直接参加了运动。这场反对帝国主义的民族运动浪潮，史称五卅运动     
+      </p></li>
+     <li> <p>中共四大时，全国党员人数是994人</p>
+    </li>
+    </ul>
+    <li>
+      <p>1927（中共五大）</p>
+    </li>
+    <ul class="li1"><li>
+      <p>1927年中共五大时，全国党员人数已超过5万人
+      
+        <li><p>1927年4月12日，蒋介石在上海发动反革命政变。</p></li>
+      
+        <li><p>中共五大选举产生了党的历史上第一个中央纪律检查监督机构--中央监察委员会，这在党的建设史上有重要意义
+        
+        <li><p>南昌起义标志着中国共产党独立地领导革命战争，创建人民军队和武装夺取政权的开始
+        <br>
+        <li><p>秋收起义从进攻大城市转到向农村进军，这是中国人民革命发展史上具有决定意义的新起点。
+        <li><p>广州起义是对国民党反动派屠杀政策的又一次英勇反击。
+        
+        <li><p>毛泽东率领秋收起义部队南下时，决定选择在井冈山地区建立革命根据地。
+       
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1928（中共六大）</p>
+    </li><ul class="li1"><li>
+      <p> 1928年6月18日至7月11日，中国共产党第六次全国代表大会于在莫斯科近郊五一村召开。
+      </p>
+    </li>
+    </ul>
+     
+    <li>
+      <p>1929</p>
+    </li>
+    <ul class="li1"><li>
+      <p>1929年，古田会议决议的中心思想是要用无产阶级思想进行军队和党的建设
+      
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1931</p>
+    </li><ul class="li1"><li>
+      <p>九一八事变以后，中日之间的民族矛盾逐渐上升为主要矛盾，中国国内的阶级关系发生重大变动
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1934</p>
+    </li>
+     <ul class="li1"><li>
+      <p>1934年10月中旬，中共中央、中革军委率中央红军主力8.6万余人，开始了长征。     
+      </p></li>
+     <li> <p>长征途中翻越的第一座人迹罕至的大雪山是——夹金山</p>
+    </li>
+    </ul>
+    <li>
+      <p>1935</p>
+    </li>
+    <ul class="li1"><li>
+      <p>遵义会议开始确立以毛泽东同志为主要代表的马克思主义正确路线在中共中央的领导地位。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1936</p>
+    </li>
+    <ul class="li1"><li>
+      <p>根据用和平方式解决西安事变的方针，周恩来与张学良、杨虎城共同努力，经过谈判，迫使蒋介石作出停止剿共，联红抗日的承诺。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1937</p>
+    </li><ul class="li1"><li>
+      <p>卢沟桥事变，日本由此开始了全面侵华战争，中国展开全国性抗战。   
+      </p></li>
+     <li> <p>平型关大捷是全国抗战爆发后中国军队主动对日作战取得的第一个重大胜利，打破了侵华日军所谓“不可战胜”的神话。</p>
+    </li>
+    </ul>
+    <li>
+      <p>1938</p>
+    </li><ul class="li1"><li>
+      <p>1938年毛泽东总结经验，作了《论持久战》的长篇讲演。   
+      </p></li>
+     <li> <p>1938年10月日军占领武汉、广州后，抗日战争进入战略相持阶段
+</p>
+    </li>
+    <li> <p>在抗日战争的战略相持阶段，敌后游击战争成为主要的抗日作战方式。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1940</p>
+    </li><ul class="li1"><li>
+      <p>百团大战是全国抗战以来八路军在华北发动的规模最大、持续时间最长的一次带战略性进攻的战役。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1945（中共七大）</p>
+    </li><ul class="li1"><li>
+      <p>1945年4月23日，中共七大在延安杨家岭开幕  
+      </p></li>
+     <li> <p>中共七大提出党的政治路线是：放手发动群众，壮大人民力量，在我党的领导下，打败日本侵略者，解放全国人民，建立一个新民主主义的中国。
+
+</p>
+    </li>
+    <li> <p>中共七大将毛泽东思想确定为党的指导思想并写入党章。
+</p>
+    </li>
+    <li> <p>1945年9月2日，日本代表在投降书上签字。侵华日军128万人随即向中国投降。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1948</p>
+    </li><ul class="li1"><li>
+      <p>1948年秋，人民解放战争进入夺取全国胜利的决定性阶段。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1949</p>
+    </li>
+    <ul class="li1"><li>
+      <p>1949年上半年，毛泽东提出了三条基本外交方针: “另起炉灶”，“打扫干净屋子再请客”，“一边倒”。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1950</p>
+    </li><ul class="li1"><li>
+      <p>抗美援朝战争历时两年九个月1950年10月，中国人民志愿军赴朝作战，拉开了抗美援朝战争的序幕。在抗美援朝战争中,志愿军得到了解放军全军和中国全国人民的全力支持,得到了以苏联为首的社会主义阵营的配合。1953年7月，双方签订《朝鲜停战协定》，从此抗美援朝胜利结束。1958年， 志愿军全部撤回中国。10月25日为抗美援朝纪念日。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1953</p>
+    </li>
+    <ul class="li1"><li>
+      <p>“三大改造"是指对农业、工业、资本主义工商业的社会主义改造。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1954</p>
+    </li><ul class="li1"><li>
+      <p>第一届全国人民代表大会第一次会议召开的时间是1954年9月。  
+      </p></li>
+     <li> <p>全国人民代表大会即最高国家权力机关，是由1954年9月召开的第一届全国人民代表大会第一次会议通过的《中华人民共和国宪法》正式确立的。
+</p>
+    </li>
+    <li> <p>中华人民共和国首次以五大国之一身份参加讨论国际问题的重要会议是日内瓦会议。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1955</p>
+    </li> <ul class="li1"><li>
+      <p>在万隆会议上，周恩来鲜明地提出“求同存异”的方针。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1956（中共八大）</p>
+    </li><ul class="li1"><li>
+      <p>到1956年，全国绝大部分地区基本上完成了对生产资料私有制的社会主义改造。  
+      </p></li>
+     <li> <p>1956年党的八大召开，标志着党对中国社会主义建设道路的探索取得初步成果。
+</p>
+    </li>
+    <li> <p>中共八大召开时，全国党员已经超过1000万人。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1957</p>
+    </li><ul class="li1"><li>
+      <p>1957年武汉长江大桥建成通车。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1959</p>
+    </li><ul class="li1"><li>
+      <p>1959年东北松辽盆地发现工业性油流后，几万名石油职工和退伍军人经过3年多艰苦奋斗，建设起我国最大的石油基地大庆油田。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1964</p>
+    </li><ul class="li1"><li>
+      <p>我国第一颗原子弹爆炸成功的时间是1964年10月   
+      </p></li>
+     <li> <p>1964年，大型音乐舞蹈史诗《东方红》在人民大会堂首次公演。</p>
+    </li>
+    </ul>
+    <li>
+      <p>1965</p>
+    </li><ul class="li1"><li>
+      <p>在1965年，我国在国际上首次人工合成牛胰岛素结晶。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1969（中共九大）</p>
+    </li><ul class="li1"><li>
+      <p> 中国共产党第九次全国代表大会于1969年4月1日至24日在北京举行。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1970</p>
+    </li><ul class="li1"><li>
+      <p>1970年4月我国成功发射第一颗人造地球卫星“东方红一号”。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1971</p>
+    </li><ul class="li1"><li>
+      <p>中华人民共和国恢复联合国合法席位的时间是1971年10月。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1972</p>
+    </li><ul class="li1"><li>
+      <p>美国总统尼克松访华的时间是1972年2月，被誉为“小球转动大球”的“兵乓外交”，促进了中美关系的发展。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1973（中共十大）</p>
+    </li><ul class="li1"><li>
+      <p> 中国共产党第十次全国代表大会于1973年8月24日至28日在北京举行。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1977（中共十一大）</p>
+    </li><ul class="li1"><li>
+      <p> 中国共产党第十一次全国代表大会于1977年8月12日至18日在北京举行。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1978</p>
+    </li><ul class="li1"><li>
+      <p>1978年12月召开的党的十一届三中全会，实现了新中国成立以来党的历史上具有深远意义的伟大转折，开启了改革开放和社会主义现代化建设新时期  
+      </p></li>
+     <li> <p>1978年5月11日，《光明日报》公开发表《实践是检验真理的唯一标准》。
+
+</p>
+    </li>
+    <li> <p>1978年12月13日，在中央工作会议闭幕会上，邓小平作了题为《解放思想，实事求是，团结一致向前看》的重要讲话
+</p>
+    </li>
+    <li> <p>党的十一届三中全会提出了改革开放的任务。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1979</p>
+    </li><ul class="li1"><li>
+      <p>1979年4月5日至28日，党中央召开工作会议正式确立了对国民经济实行“调整、改革、整顿、提高”的新“八字方针”。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1980</p>
+    </li><ul class="li1"><li>
+      <p>1980年8月，邓小平进一步提出逐步实现各级领导人员命化、年轻化、知识化、专业化的“四化”要求。 
+      </p></li>
+     <li> <p>1980年7月26日，《人民日报》发表《文艺为人民服务、为社会主义服务》社论。
+
+</p>
+    </li>
+    <li> <p>“双百”方针和“二为”方针成为党在社会主义新时期领导文艺工作的基本遵循政策。
+</p>
+    </li>
+    <li> <p>1980年，在深圳、珠海、汕头和厦门设置经济特区。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1981</p>
+    </li><ul class="li1"><li>
+      <p>1979年4月5日至28日，党中央召开工作会议正式确立了对国民经济实行“调整、改革、整顿、提高”的新“八字方针”。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1982（中共十二大）</p>
+    </li><ul class="li1"><li>
+      <p>1982年12月，五届全国人大五次会议通过的新宪法，对军队在国家体制中的地位及其性质、职能、任务等作了明确规定，并规定设立中华人民共和国中央军事委员会，领导全国的武装力量。
+
+      </p></li>
+     <li> <p>党的十二大明确提出建设有中国特色的社会主义的重大命题和“小康”战略目标。
+
+</p>
+    </li>
+    <li> <p>党的十二大提出”把党建设成为领导社会主义现代化事业的坚强核心”，这标志着党开始用一种新的思路指导自身建设。
+</p>
+    </li>
+    <li> <p>从“六五”计划开始，五年计划开始改为国民经济和社会发展计划。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1984</p>
+    </li><ul class="li1"><li>
+      <p>1984年5月，中共中央、国务院批转《沿海部分城市座谈会纪要》，正式确定开放14个沿海港口城市
+
+      </p></li>
+     <li> <p>1984年5月《中华人民共和国民族区域自治法》颁布，同年10月1日起实施，从法律上把民族区域自治制度确立为中国特色社会主义制度的一项基本政治制度。
+
+</p>
+    </li>
+    <li> <p>1984年10月，党的十二届三中会通过《关于经济体制改革的决定》。此后，以城市为重点的经济体制改革全面展开。
+</p>
+    </ul>
+    <li>
+      <p>1986</p>
+    </li><ul class="li1"><li>
+      <p>1986年4月，六届全国人大四次会议批准的国务院《关于第七个五年计划的报告》从十个方面全面阐述了中国独立自主和平外交政策的主要内容和基本原则。
+      </p></li>
+     <li> <p>1986年8月10日，预备役部队正式列入人民解放军建制序列。
+
+</p>
+    </li>
+    <li> <p>1986年11月，中共中央、国务院决定实施发展高科技的“863计划”，我国的科技事业得到极大推动。
+</p>
+    </li>
+    <li> <p>十二届六中全会通过的《关于社会主义精神文明建设指导方针的决议》，是党的第一个关于精神文明建设的纲领性文件。
+
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1987（中共十三大）</p>
+    </li><ul class="li1"><li>
+      <p>党的十三大确定了“三步走”发展战略。
+      </p></li>
+     <li> <p>第一步目标：1981年到1990年实现国民生产总值比1980年翻一番，解决人民的温饱问题，这在二十世纪八十年代末已基本实现；
+
+</p>
+    </li>
+    <li> <p>第二步目标：1991年到二十世纪末国民生产总值再增长一倍，人民生活达到小水平；
+</p>
+    </li>
+    <li> <p>第三步目标：到二十一世纪中叶人民生活比较富裕，基本实现现代化，人均国民生产总值达到中等发达国家水平，人民过上比较富裕的生活；
+
+</p>
+    </li>
+    <li><p>党的十三大系统阐述了社会主义初级阶段的理论，明确概括了党在社会主义初级阶段的基本路线。
+</p></li>
+    </ul>
+    <li>
+      <p>1991</p>
+    </li><ul class="li1"><li>
+      <p>为发展社会主义文化，中央官传部从1991年开始组织实施精神文明建设“五个一工程”奖评选活动。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1992（中共十四大）</p>
+    </li><ul class="li1"><li>
+      <p>邓小平1992年南方谈话，科学总结党的十一届三中全会以来的实践探索和基本经验。  
+      </p></li>
+     <li> <p>党的十四大明确我国经济体制改革的目标是建立社会主义市场经济体制。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>1995</p>
+    </li><ul class="li1"><li>
+      <p>1995年5月6日，党中央、国务院进一步作出《关于加速科学技术进步的决定》，正式提出科教兴国战略。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1997（中共十五大）</p>
+    </li><ul class="li1"><li>
+      <p>1997年7月1日，中国对香港恢复行使主权。
+
+      </p></li>
+     <li> <p>党的十五大提出了党在社会主义初级阶段的基本纲领。
+
+</p>
+    </li>
+    <li> <p>党的十五大把邓小平理论同马克思列宁主义、毛泽东思想一起作为党的指导思想写入党章。
+</p>
+    </ul>
+    <li>
+      <p>1998</p>
+    </li><ul class="li1"><li>
+      <p>1998年，党的十五届三中全会提出，要坚定不移地贯彻土地承包期再延长30年的政策。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>1999</p>
+    </li><ul class="li1"><li>
+      <p>1999年9月，党的十五届四中全会明确提出国家要实施西部大开发战略，支持中西部地区和少数民族地区加快发展。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2000</p>
+    </li><ul class="li1"><li>
+      <p>数学大师吴文俊、“杂交水稻之父”袁隆平荣获2000年度国家最高科学技术奖。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2001</p>
+    </li><ul class="li1"><li>
+      <p>2001年，中国加入世界贸易组织。
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2002（中共十六大）</p>
+    </li><ul class="li1"><li>
+      <p>将“三个代表”重要思想确立为党的指导思想，是十六大的一个历史性决策和贡献。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2003</p>
+    </li><ul class="li1"><li>
+      <p>2003年8月底9月初，胡锦涛在江西考察时明确使用“科学发展观”概念。
+
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2005</p>
+    </li><ul class="li1"><li>
+      <p>2005年12月29日，十届全国人大常委会第十九次会议决定废止《中华人民共和国农业税条例》。
+
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2007（中共十七大）</p>
+    </li><ul class="li1"><li>
+      <p>党的十七大提出实现全面建设小康社会奋斗目标的新要求。
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2012（中共十八大）</p>
+    </li><ul class="li1"><li>
+      <p>党的十八大对全面提高党的建设科学化水平提出了明确要求。  
+      </p></li>
+     <li> <p>党的十八大以来，平均每年1000多万人脱贫，相当于一个中等国家的人口脱贫。
+
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>2017（中共十九大）</p>
+    </li><ul class="li1"><li>
+      <p>十九大的主题是：不忘初心，牢记使命，举中国特色社会主义伟大旗帜，决胜全面建成小康社会，夺取新时代中国特色社会主义伟大胜利，为实现中华民族伟大复兴的中国梦不懈奋斗。 
+      </p></li>
+     <li> <p>经过长期努力，中国特色社会主义进入了新时代，这是我国发展新的历史方位。
+</p>
+    </li>
+    </ul>
+    <li>
+      <p>2018</p>
+    </li><ul class="li1"><li>
+      <p>2018年12月18日，近半在庆祝改革开放四十周年大会上指出，改革开放四十年来，我们党全部理论和实践的主题是坚持和发展中国特色社会主义。
+
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2019</p>
+    </li><ul class="li1"><li>
+      <p>“四个自信”是指牢固树立中国特色社会主义道路自信、理论自信、制度自信、文化自信
+
+
+      </p>
+    </li>
+    </ul>
+    <li>
+      <p>2021</p>
+    </li><ul class="li1"><li>
+      <p>中共中央组织部最新党内统计数据显示，截至2021年6月5日，中国共产党党员总数为9514.8万名，比2019年底净增323.4万名。
+ 
+      </p></li>
+     <li> <p>2021年7月1日，习近平在庆祝中国共产党成立100周年大会上庄严宣告，经过全党全国各族人民持续奋斗，我们实现了第一个百年奋斗目标，在中华大地上全面建成了小康社会，历史性地解决了绝对贫困问题。</p>
+    </li>
+    </ul>
+    <li>
+      <p>2022（中共二十大）</p>
+    </li><ul class="li1"><li>
+      <p>2022年，中国将召开中国共产党第二十次全国代表大会。
+      </p>
+    </li>
+    </ul>
+  </ul>
+	  
+</div>
+
+<div align="center" style="width:1000px"><img src="img/img2.jpg" width=80% height="310"></div>
+<div style="background-color:#900; margin-top:20px; margin-bottom:20px; width:100%; height:10px;"></div>
+<div><img src="img/7293450c6be1a76c72ae91262dd4a57e.jpg" style="width:100%; height:8500px;"></div>
+<div class="footer">
+  <div class="i1">
+    <li>
+      <img src="images/pz.jpg">
+    </li>
+  </div>
+  <div > <li>
+    <li><span>关于我们</span>
+    <span>|</span>
+    <span>联系我们</span>
+    <span>|</span>
+  <span>素材来源于网络</span></li>
+  </div>
+</div>
+</div>
+</body>
+</html>
